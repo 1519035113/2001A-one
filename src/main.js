@@ -13,12 +13,29 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 // 配置echarts
-import echarts from 'echarts'
+var echarts = require('echarts')
 Vue.prototype.$echarts = echarts
 
 // 引入样式文件
 import './assets/css/global.css'
-import './assets/fonts/iconfont.css'
+
+router.beforeEach((to, from, next) => {
+  let token = localStorage.getItem('token')
+  if (!token) {
+    if (to.path != '/login') {
+      next('/login')
+    } else {
+      next()
+    }
+  } else {
+    if (to.path == '/login') {
+      next('/hhome')
+    } else {
+      next()
+    }
+  }
+})
+
 
 Vue.config.productionTip = false
 

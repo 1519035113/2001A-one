@@ -1,21 +1,43 @@
 export default [{
-    path: '/homepage',
-    name: 'homepage',
-    component: () => import('@/views/homepage'),
-    redirect: '/homepage/welcome',
+    path: '/hhome',
+    name: 'hhome',
+    component: () => import('@/views/hhome'),
+    redirect: '/hhome/welcome',
     children: [{
-        path: '/homepage/welcome',
+        path: '/hhome/welcome',
         component: () => import('@/views/welcome')
     }]
 },
 {
-    path:'/homepage/user',
-    name:'homepage',
-    component: () => import('@/views/homepage'),
+    path:'/hhome/user',
+    name:'hhome',
+    component: () => import('@/views/hhome'),
     children:[
        { 
            path:'/',
            component:()=>import('@/views/user')
+        }
+    ]
+},
+{
+    path:'/hhome/photo',
+    name:'hhome',
+    component: () => import('@/views/hhome'),
+    children:[
+       { 
+           path:'/',
+           component:()=>import('@/views/photo')
+        }
+    ]
+},
+{
+    path:'/hhome/shop',
+    name:'hhome',
+    component: () => import('@/views/hhome'),
+    children:[
+       { 
+           path:'/',
+           component:()=>import('@/views/shop')
         }
     ]
 },
